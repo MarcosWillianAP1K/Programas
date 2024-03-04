@@ -17,7 +17,7 @@ int main (){
     printf("%d\n\n", *ponteiro);
 
     //printar endereço na memoria que esta armazenado o valor da variavel, acesso a posição na memoria
-    printf("%d\n\n", ponteiro);
+    printf("%p\n\n", ponteiro);
 
     //Alterei o valor de x diretamente no local da memoria
     *ponteiro = y;

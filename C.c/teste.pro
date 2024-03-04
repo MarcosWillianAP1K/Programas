@@ -1,0 +1,4 @@
+main :-  
+    write("ola mundo").
+
+

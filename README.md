@@ -9,8 +9,8 @@
 
 <div align="center">
   <h3>Main skills:</h3>
-  <img src="https://img.shields.io/badge/-C-0D1117?style=for-the-badge&logo=c&labelColor=0D1117">
-  <img src="https://github.com/MarcosWillianAP1K/Programas/assets/161073600/2520a696-1241-4886-8251-219aed1e5027" width=30px>
+  <img src="https://github.com/MarcosWillianAP1K/Programas/assets/161073600/c5d70725-718e-4c45-9657-19e28cd8c101" width=50px>
+  <img src="https://github.com/MarcosWillianAP1K/Programas/assets/161073600/1b399f6e-3576-4679-b601-40cc47fb1bdb" width=36px>
 
 </div>
 
@@ -21,7 +21,7 @@
     <tr>
       <td style="border: none;">
         <!-- Imagem -->
-        <img src="https://i.pinimg.com/originals/09/1c/c9/091cc95737fd417103a9e805e0d779a8.jpg" style="width: 450px; height: auto;" alt="Imagem">
+        <img src="https://github.com/MarcosWillianAP1K/Programas/assets/161073600/9704b071-00dc-4a9d-8919-b595abfea1a2" style="width: 400px; height: auto;" alt="gif">
       </td>
       <td style="border: none;">
         <!-- Estatísticas do GitHub -->
@@ -41,7 +41,8 @@
 
 <div align="center">
   <h3>Studying in this moment:</h3>
-   <img src="https://img.shields.io/badge/-C-0D1117?style=for-the-badge&logo=c&labelColor=0D1117">&nbsp;
+   <img src="https://github.com/MarcosWillianAP1K/Programas/assets/161073600/c5d70725-718e-4c45-9657-19e28cd8c101" width=50px>
+  <img src="https://github.com/MarcosWillianAP1K/Programas/assets/161073600/1b399f6e-3576-4679-b601-40cc47fb1bdb" width=36px>
 </div>
 
 <div align="center">

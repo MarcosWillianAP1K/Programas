@@ -9,8 +9,9 @@
 
 <div align="center">
   <h3>Main skills:</h3>
-  <img src="https://img.shields.io/badge/-C-0D1117?style=for-the-badge&logo=c&labelColor=0D1117">&nbsp;
-    
+  <img src="https://img.shields.io/badge/-C-0D1117?style=for-the-badge&logo=c&labelColor=0D1117">
+  <img src="https://github.com/MarcosWillianAP1K/Programas/assets/161073600/2520a696-1241-4886-8251-219aed1e5027" width=30px>
+
 </div>
 
 

@@ -13,4 +13,7 @@ e_do_sudeste(X) :-
 
 qual_e_a_capital(X) :-
     capital(Y, X), e_do_sudeste(X),
-    write(Y).
+    write(Y). 
+
+regioes_do_sudeste(X) :-
+    regiao(X, sudeste), write(X), regioes_do_sudeste(X  ).  

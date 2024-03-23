@@ -1,0 +1,14 @@
+Foram feitos dois algoritmos, sendo um trivial e outro euclides.
+Basicamente ambos tem a mesma função, calcaular o MDC de dois numeros inteiros, porem, a diferença esta em como eles 
+calculam. Oque acaba tornando sua principal diferença, pois um acaba sendo mais eficiente que o outro.
+
+DADOS:
+
+numeros usados: 100003 e 100019
+MDC: 1 (ambos são primos)
+
+Numero de vezes rodada para calcular o MDC:
+
+Trivial: 100002 vezes
+
+Euclides: 5 vezes

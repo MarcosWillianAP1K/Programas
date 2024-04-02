@@ -2,7 +2,7 @@
 
 int main()
 {
-    mat[1]
+    int mat[1];
 
     return 0;
 }

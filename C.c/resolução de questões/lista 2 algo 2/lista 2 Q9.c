@@ -16,46 +16,45 @@ void contador_de_algarismo(int *p, int n)
     }
 }
 
-void arruma_digitacao(int *pd, int *pv)
+void arruma_digitacao(char *pd, int *pv)
 {
     int tam = 0;    
 
     contador_de_algarismo(&tam, *pv);
 
-    printf("\n%d", *pd);
 
     char vstring[tam];
-    printf("\n%d", tam);
-
+    
     sprintf(vstring, "%d", *pv);
-
-    printf("\n%s", vstring);
 
     for (int i = 0; i < tam; i++)
     {
-        //sa desgraça de if n funciona
-        if (vstring[i] == '7')
+        
+        if (vstring[i] == *pd)
         {
-            vstring[i] = '\0';
-            printf("\ndeu bom");
+            vstring[i] = ' ';
         }
     }
 
-    printf("\n%s\n", vstring);
+    
 
-    *pv = (int)strtol(vstring, NULL, 10);
+    *pv = atoi(vstring);
     
 }
 
 int main()
 {
-    int d, v;
+    int v;
+    char d;
 
     printf("Digite a tecla defeituosa e em seguida o numero digitado\n\n");
 
     do
     {
-        scanf("%d %d", &d, &v);
+        
+        scanf("%c", &d);
+        scanf("%d", &v);
+        
 
         if (d != 0 || v != 0)
         {
@@ -64,7 +63,7 @@ int main()
             printf("valor %d\n\n", v);
         }
 
-    } while (d != 0 || v != 0);
+    } while (d != '0' || v != 0);
 
     return 0;
 }

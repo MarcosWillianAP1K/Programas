@@ -1,69 +1,67 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
+char v[10100];
+char d[2];
 
-void contador_de_algarismo(int *p, int n)
+void bubble(int *pposicao, int *ptam)
 {
-    if (n < 0)
+    char aux;
+
+    for (int i = *pposicao; i < *ptam; i++)
     {
-        n *= -1;
+        aux = v[i];
+        v[i] = v[i + 1];
+        v[i + 1] = aux;
     }
 
-    while (n != 0)
+    while (v[0] == '0')
     {
-        n /= 10;
-        *p += 1;
+        for (int i = 0; i < *ptam; i++)
+        {
+            aux = v[i];
+            v[i] = v[i + 1];
+            v[i + 1] = aux;
+        }
     }
 }
 
-void arruma_digitacao(char *pd, int *pv)
+void arruma_digitacao()
 {
-    int tam = 0;    
+    int t = strlen(v);
 
-    contador_de_algarismo(&tam, *pv);
-
-
-    char vstring[tam];
-    
-    sprintf(vstring, "%d", *pv);
-
-    for (int i = 0; i < tam; i++)
+    for (int i = 0; i < t; i++)
     {
-        
-        if (vstring[i] == *pd)
+
+        if (v[i] == d[0])
         {
-            vstring[i] = ' ';
+            bubble(&i, &t);
         }
     }
-
-    
-
-    *pv = atoi(vstring);
-    
 }
 
 int main()
 {
-    int v;
-    char d;
 
     printf("Digite a tecla defeituosa e em seguida o numero digitado\n\n");
 
     do
     {
-        
-        scanf("%c", &d);
-        scanf("%d", &v);
-        
+        fflush(stdin);
+        fgets(d, sizeof(d), stdin);
+        fflush(stdin);
+        fgets(v, sizeof(v), stdin);
+        fflush(stdin);
 
-        if (d != 0 || v != 0)
-        {
-            arruma_digitacao(&d, &v);
+        d[1] = '\0';
+        v[strlen(v) - 1] = '\0';
 
-            printf("valor %d\n\n", v);
-        }
+        arruma_digitacao();
 
-    } while (d != '0' || v != 0);
+        printf("valor \n%s\n\n", v);
+
+    } while (d != 0 || v != 0);
 
     return 0;
 }

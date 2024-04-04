@@ -32,33 +32,25 @@ int main()
     {
         teste = 0;
 
-        if (n[i] != 0)
+        for (int j = 0; j < TAM; j++)
         {
-            for (int j = i + 1; j < TAM; j++)
+            if (n[i] == n[j] && i != j)
             {
-                if (n[i] == n[j])
-                {
-                    teste++;
-                    n[j] = 0;
-                }
+                teste++;
             }
+        }
 
-            if (teste != 0)
-            {
-                printf("%d\n", n[i]);
-                t++;
-            }
-            else
-            {
-                n[i] = 0;
-            }
+        if (teste == 0)
+        {
+            printf("%d\n", n[i]);
+            t++;
         }
     }
 
     if (t == 0)
     {
-       printf("Nao a nenhum numero repetido\n");
+        printf("Todos os numeros se repetem\n\n");
     }
-    
+
     return 0;
 }

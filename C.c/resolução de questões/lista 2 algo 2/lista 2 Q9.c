@@ -16,7 +16,7 @@ void bubble(int *pposicao, int *ptam)
         v[i + 1] = aux;
     }
 
-    while (v[0] == '0')
+    while (v[0] == '0' && (v[1] == '0' || v[1] != '\0'))
     {
         for (int i = 0; i < *ptam; i++)
         {
@@ -61,7 +61,7 @@ int main()
 
         printf("valor \n%s\n\n", v);
 
-    } while (d != 0 || v != 0);
+    } while (d[0] != '0' || v[0] != '0');
 
     return 0;
 }

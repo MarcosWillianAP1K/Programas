@@ -3,8 +3,10 @@
 
 // QP = quantidade de participantes
 #define QP 16
+
+//Meu erro estava aqui na roda, eu coloquei 3 inves de 4
 // total de rodadas
-#define roda 3
+#define roda 4
 
 int main()
 {

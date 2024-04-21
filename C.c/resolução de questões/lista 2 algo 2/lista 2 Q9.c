@@ -2,27 +2,24 @@
 #include <stdlib.h>
 #include <string.h>
 
-char v[10100];
+//havia problema ao pecorrer os vetores
+
+char v[1000];
 char d[2];
 
 void bubble(int *pposicao, int *ptam)
 {
-    char aux;
 
     for (int i = *pposicao; i < *ptam; i++)
     {
-        aux = v[i];
         v[i] = v[i + 1];
-        v[i + 1] = aux;
     }
 
     while (v[0] == '0' && (v[1] == '0' || v[1] != '\0'))
     {
         for (int i = 0; i < *ptam; i++)
         {
-            aux = v[i];
             v[i] = v[i + 1];
-            v[i + 1] = aux;
         }
     }
 }
@@ -33,10 +30,11 @@ void arruma_digitacao()
 
     for (int i = 0; i < t; i++)
     {
-
         if (v[i] == d[0])
         {
+            printf("*");
             bubble(&i, &t);
+            i--;
         }
     }
 }
@@ -54,7 +52,6 @@ int main()
         fgets(v, sizeof(v), stdin);
         fflush(stdin);
 
-        d[1] = '\0';
         v[strlen(v) - 1] = '\0';
 
         arruma_digitacao();

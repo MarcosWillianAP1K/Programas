@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include "my_string.h"
 
-void funcao();
 
 int main(void){
 
@@ -15,13 +14,12 @@ int main(void){
     
 
     printf("%s", mystrcpy(s1, s2));
+    printf("\n%s", mystrncpy(s1, s2, 5));
+    printf("\n%s", mystrcat(s4, s5));
+    printf("\n%s", mystrncat(s4, s6, 12));
+    printf("\n%d", mystrcmp(s3, s2));
+    
 
 
     return 0;
-}
-
-void funcao(){
-
-
-
 }

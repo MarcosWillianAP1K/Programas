@@ -18,7 +18,8 @@ int main(void){
     printf("\n%s", mystrcat(s4, s5));
     printf("\n%s", mystrncat(s4, s6, 12));
     printf("\n%d", mystrcmp(s3, s2));
-    
+    printf("\n%d", mystrncmp(s2, s3, 7));
+    printf("\n%d", mystrncmp(s2, s3, 8));    
 
 
     return 0;

@@ -62,23 +62,73 @@ char *mystrncat(char *s1, const char *s2, int n)
     }
 
     s1[c] = '\0';
-    
+
     return s1;
 }
 
 int *mystrcmp(char *s1, const char *s2)
 {
-    int t = 0, c = 0;
-
-    while (s1[c] != '\0' || s2[c] != '\0')
+    int c = 0;
+    while (s1[c] != '\0' && s2[c] != '\0')
     {
-        t += s1[c] - s2[c];
+        if (s1[c] != s2[c])
+        {
+            if (s1[c] - s2[c] > 0)
+            {
+                return 1;
+            }
+            else
+            {
+                return -1;
+            }
+        }
         c++;
     }
 
-    return t;
+    if (s1[c] == '\0' && s2[c] == '\0')
+    {
+        return 0;
+    }
+    else if (s1[c] == '\0')
+    {
+        return -1;
+    }
+    else
+    {
+        return 1;
+    }
 }
 
 int *mystrncmp(char *s1, const char *s2, int n)
 {
+    int c = 0;
+
+    while (s1[c] != '\0' && s2[c] != '\0' && c < n)
+    {
+        if (s1[c] != s2[c])
+        {
+            if (s1[c] - s2[c] > 0)
+            {
+                return 1;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+        c++;
+    }
+
+    if (s1[c] != '\0' && s2[c] != '\0')
+    {
+        return 0;
+    }
+    else if (s1[c] == '\0')
+    {
+        return -1;
+    }
+    else
+    {
+        return 1;
+    }
 }

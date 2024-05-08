@@ -66,7 +66,7 @@ char *mystrncat(char *s1, const char *s2, int n)
     return s1;
 }
 
-int *mystrcmp(char *s1, const char *s2)
+int mystrcmp(char *s1, const char *s2)
 {
     int c = 0;
     while (s1[c] != '\0' && s2[c] != '\0')
@@ -99,7 +99,7 @@ int *mystrcmp(char *s1, const char *s2)
     }
 }
 
-int *mystrncmp(char *s1, const char *s2, int n)
+int mystrncmp(char *s1, const char *s2, int n)
 {
     int c = 0;
 

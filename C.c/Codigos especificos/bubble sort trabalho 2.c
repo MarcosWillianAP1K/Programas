@@ -29,7 +29,7 @@ int main()
 
         // Bubble sort
         // for pra todo o vetor
-        for (i = 0; i < max; i++)
+        for (i = 0; i < max - 1; i++)
         {
             // for para testar cada posição do vetor
             for (j = 0; j < max - i; j++)

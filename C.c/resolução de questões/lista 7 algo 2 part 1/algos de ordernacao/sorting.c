@@ -2,20 +2,13 @@
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
+#include "sorting.h"
+
 
 #define maior_char 50
 
 
-typedef struct
-{
-    int chave;
-    char nome[30], endereco[50], telefone[14];
-} alunos;
-
-
-
-
-void printar(alunos v[], int *n)
+void printar(Alunos v[], int *n)
 {
     for (int i = 0; i < *n; i++)
     {
@@ -25,7 +18,7 @@ void printar(alunos v[], int *n)
     printf("\n\n");
 }
 
-void gerarDados(alunos v[], int *n, int *ordemChave)
+void gerarDados(Alunos v[], int *n, int *ordemChave)
 {
     srand(time(NULL));
 
@@ -63,7 +56,7 @@ void gerarDados(alunos v[], int *n, int *ordemChave)
     }
 }
 
-void bubble(alunos v[], int *n)
+void bubble(Alunos v[], int *n)
 {
     int intaux;
     char charaux[maior_char];
@@ -94,7 +87,7 @@ void bubble(alunos v[], int *n)
     }
 }
 
-void selection(alunos v[], int *n)
+void selection(Alunos v[], int *n)
 {
     int intaux, min;
     char charaux[maior_char];
@@ -129,7 +122,7 @@ void selection(alunos v[], int *n)
     }
 }
 
-void insertion(alunos v[], int *n)
+void insertion(Alunos v[], int *n)
 {
     int intaux, j;
     char charaux1[maior_char], charaux2[maior_char], charaux3[maior_char];
@@ -159,7 +152,7 @@ void insertion(alunos v[], int *n)
     }
 }
 
-void ordernar(alunos v[], int *tipo, int *n)
+void ordernar(Alunos v[], int *tipo, int *n)
 {
     if (*tipo == 0)
     {
@@ -180,7 +173,7 @@ void ordernar(alunos v[], int *tipo, int *n)
     }
 }
 
-void criar_ordernacao(alunos v[], int *n, int *tipo, int *ordem_de_chave)
+void criar_ordernacao(Alunos v[], int *n, int *tipo, int *ordem_de_chave)
 {
 
     gerarDados(v, n, ordem_de_chave);

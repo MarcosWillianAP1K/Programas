@@ -2,11 +2,6 @@
 #include <stdlib.h>
 #include "sorting.h"
 
-typedef struct
-{
-    int chave;
-    char nome[30], endereco[50], telefone[14];
-} alunos;
 
 int main()
 {
@@ -25,9 +20,9 @@ int main()
         
     } while ((n >= 0 && n <= 2) && (ordemchave >= 0 && ordemchave <= 2));
 
-    alunos v[n];
+    Alunos aluno[n];
 
-    criar_ordernacao(v, &n, &tipo, &ordemchave);
+    criar_ordernacao(aluno, &n, &tipo, &ordemchave);
 
     return 0;
 }

@@ -2,15 +2,52 @@
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
 #include "sortingm.h"
 
 #define maior_char 50
 
 int MOV = 0, COMP = 0;
 
-void printar(int *n)
+void printar(int *n, int *tipo, int *ordem)
 {
-    printf("Vetor de %d:  %d MOV  %d COMP\n\n", *n, MOV, COMP);
+    printf("Vetor de %d:  %d MOV  %d COMP", *n, MOV, COMP);
+
+    if (*tipo == 0)
+    {
+        COMP = (pow(*n, 2) - *n) / 2;
+        MOV = 3 * COMP;
+    }
+
+    if (*tipo == 1)
+    {
+        COMP = (pow(*n, 2) - *n) /2;
+        MOV = 3 * ( *n - 1);
+    }
+    
+    if (*tipo == 2)
+    {
+        if (*ordem == 0)
+        {
+            COMP = *n -1;
+            MOV = COMP;
+        }
+
+        if (*ordem == 1)
+        {
+            COMP =(pow(*n, 2)/4) + (*n / 4) - (1 / 2);
+            MOV = COMP;
+        }
+
+        if (*ordem == 2)
+        {
+            COMP = (pow(*n, 2) - *n) / 2;
+            MOV = COMP;
+        }
+    }
+    
+    
+    printf("    Custo:  %d MOV  %d COMP\n\n", MOV, COMP);
 }
 
 void gerarDados(Alunos v[], int *n, int *ordemChave)
@@ -186,5 +223,5 @@ void criar_ordernacao(Alunos v[], int *n, int *tipo, int *ordem_de_chave)
 
     ordernar(v, tipo, n);
 
-    printar(n);
+    printar(n, tipo, ordem_de_chave);
 }

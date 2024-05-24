@@ -25,11 +25,11 @@ void comparacao(int *vetor)
 
     bool teste;
 
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i <= n; i++)
     {
         teste = false;
 
-        for (int j = 0; j < n; j++)
+        for (int j = 0; j <= n; j++)
         {
            if (i == *(vetor+j))
            {
@@ -46,7 +46,7 @@ void comparacao(int *vetor)
 
 void preencher(int *vetor)
 {
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i <= n; i++)
     {
         scanf("%d", &*(vetor+i));
     }

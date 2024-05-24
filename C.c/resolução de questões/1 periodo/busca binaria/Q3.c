@@ -10,6 +10,7 @@ int main()
     do
     {
         scanf("%d", &t);
+        
     } while (!(t >= 1 && t <= 10000));
 
     bool final[t];
@@ -21,7 +22,7 @@ int main()
         do
         {
             scanf("%d", &n);
-
+            
         } while (!(n >= 1 && n <= pow(10, 9)));
 
         int baldes[n];

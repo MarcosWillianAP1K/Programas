@@ -16,6 +16,7 @@ main() {
   //map
   Map numero_de_ap = {"marcos": 305, "walison": 305, "cleiton": 306};
 
+  // ignore: unnecessary_type_check
   print(numero_de_ap is Map);
 
   //printar todo mapa, apenas valores, apenas chaves, ambos

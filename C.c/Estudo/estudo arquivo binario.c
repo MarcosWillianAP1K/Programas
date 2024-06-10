@@ -22,7 +22,7 @@ void ler_arquivo()
     {
         fscanf(arq, "%d\n", &quant);
         
-        2
+        
         fread(lista, sizeof(cadastro), quant, arq);
 
         fclose(arq);

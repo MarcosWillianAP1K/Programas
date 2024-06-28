@@ -12,9 +12,24 @@ void verificar_se_existe_arquivo()
     }
     else
     {
-        printf("Arquivo não existe, esta sendo criado um novo, aguarde...\n");
-        system("pause");
-        system("cls||clear");
+        timer = 0;
+
+        while (timer != 6)
+        {
+
+            printf("\rArquivo nao existe, esta sendo criado um novo, aguarde      ");
+            fflush(stdout);
+            printf("\rArquivo nao existe, esta sendo criado um novo, aguarde");
+            fflush(stdout);
+
+            for (int i = 0; i < 3; i++)
+            {
+                printf(" .");
+                fflush(stdout);
+                Sleep(250);
+            }
+            timer++;
+        }
 
         FILE *arq = fopen(nome_arq, "ab");
 
@@ -28,12 +43,12 @@ void verificar_se_existe_arquivo()
 
 int main()
 {
+    system("cls||clear");
     verificar_se_existe_arquivo();
 
     do
     {
-        menu = -1;
-
+        system("cls||clear");
         printf("1-Formatar\n2-Escrever\n3-Ler\n4-buscar\n0-Finalizar\n");
 
         if (scanf("%d", &menu))
@@ -41,7 +56,26 @@ int main()
             switch (menu)
             {
             case 0:
-                printf("\nFinalizando...\n\n");
+                printf("\n");
+
+                timer = 0;
+
+                while (timer != 4)
+                {
+
+                    printf("\rFinalizando      ");
+                    fflush(stdout);
+                    printf("\rFinalizando");
+                    fflush(stdout);
+
+                    for (int i = 0; i < 3; i++)
+                    {
+                        printf(" .");
+                        fflush(stdout);
+                        Sleep(250);
+                    }
+                    timer++;
+                }
                 break;
 
             case 1:
@@ -57,6 +91,7 @@ int main()
                 break;
 
             case 4:
+                buscar_arquivo();
                 break;
 
             default:
@@ -69,8 +104,6 @@ int main()
         {
             blindagem_scanf();
         }
-
-        system("cls||clear");
 
     } while (menu != 0);
 

@@ -14,7 +14,7 @@ typedef struct
 
 Alunos cadastro;
 
-int menu, n;
+int menu, n, timer;
 
 void blindagem_scanf();
 
@@ -23,3 +23,5 @@ void formatar_arquivo();
 void ler_arquivo();
 
 void escrever_arquivo();
+
+void buscar_arquivo();

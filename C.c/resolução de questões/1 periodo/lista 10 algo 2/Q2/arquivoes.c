@@ -21,7 +21,6 @@ bool verificar_chave(int *chave_aux)
 
     if (arq)
     {
-        fread(&n, sizeof(n), 1, arq);
 
         while (!feof(arq))
         {
@@ -97,40 +96,43 @@ void formatar_arquivo()
 {
     remove(nome_arq);
 
+    cadastro.chave = -1;
+
     FILE *arq = fopen(nome_arq, "ab");
 
-    n = 0;
-
-    fwrite(&n, sizeof(&n), 1, arq);
+    for (int i = 0; i < 1000; i++)
+    {
+        fwrite(&cadastro, sizeof(cadastro), 1, arq);
+    }
 
     fclose(arq);
 }
 
 void ler_arquivo()
 {
+    bool teste = false;
     FILE *arq = fopen(nome_arq, "rb");
 
     if (arq)
     {
-        fread(&n, sizeof(&n), 1, arq);
-
-        if (n != 0)
+        printf("\n\n");
+        while (!feof(arq))
         {
-            printf("\n");
-            for (int i = 0; i < n; i++)
-            {
-                fread(&cadastro, sizeof(cadastro), 1, arq);
+            fread(&cadastro, sizeof(cadastro), 1, arq);
 
+            if (cadastro.chave > 0 && cadastro.chave <= 1000)
+            {
+                teste = true;
                 printf("Chave: %d\nNome: %s\nEndereco: %s\nTelefone: %s\n\n", cadastro.chave, cadastro.nome, cadastro.endereco, cadastro.telefone);
             }
+        }
 
-            system("pause");
-        }
-        else
+        if (teste = false)
         {
-            printf("\nArquivo vazio\n");
-            system("pause");
+            printf("arquivo vazio\n\n");
         }
+
+        system("pause");
 
         fclose(arq);
     }
@@ -220,17 +222,11 @@ void escrever_arquivo()
 
     } while (teste);
 
-    n++;
-
     FILE *arq = fopen(nome_arq, "rb+");
 
-    fseek(arq, 0, SEEK_END);
+    fseek(arq, sizeof(cadastro) * chave_aux, SEEK_CUR);
 
     fwrite(&cadastro, sizeof(cadastro), 1, arq);
-
-    fseek(arq, 0, SEEK_SET);
-
-    fwrite(&n, sizeof(int), 1, arq);
 
     fclose(arq);
 }
@@ -240,32 +236,30 @@ void buscar_arquivo()
     bool teste;
     int chave_digitada;
 
-    if (n != 0)
+    do
     {
-        do
-        {
-            system("cls||clear");
+        system("cls||clear");
 
-            printf("Digite uma chave\n");
-            if (scanf("%d", &chave_digitada))
+        printf("Digite uma chave\n");
+        if (scanf("%d", &chave_digitada))
+        {
+            if (chave_digitada > 0 && chave_digitada <= 1000)
             {
+
                 teste = false;
 
                 FILE *arq = fopen(nome_arq, "rb");
 
-                fread(&n, sizeof(n), 1, arq);
+                fseek(arq, sizeof(cadastro) * chave_digitada, SEEK_CUR);
 
-                while (!feof(arq) && teste == false)
-                {
-                    fread(&cadastro, sizeof(cadastro), 1, arq);
-
-                    if (cadastro.chave == chave_digitada)
-                    {
-                        teste = true;
-                    }
-                }
+                fread(&cadastro, sizeof(cadastro), 1, arq);
 
                 fclose(arq);
+
+                if (cadastro.chave == chave_digitada)
+                {
+                    teste = true;
+                }
 
                 if (teste == true)
                 {
@@ -277,7 +271,6 @@ void buscar_arquivo()
                     printf("\n\nChave nao encontrada\n\n");
                     system("pause");
                 }
-
                 teste = false;
             }
             else
@@ -285,12 +278,12 @@ void buscar_arquivo()
                 blindagem_scanf();
                 teste = true;
             }
+        }
+        else
+        {
+            blindagem_scanf();
+            teste = true;
+        }
 
-        } while (teste);
-    }
-    else
-    {
-        printf("\nArquivo vazio\n");
-        system("pause");
-    }
+    } while (teste);
 }

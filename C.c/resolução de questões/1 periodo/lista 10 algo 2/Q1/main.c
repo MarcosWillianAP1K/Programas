@@ -4,7 +4,7 @@
 #include <time.h>
 #include "arquivoes.h"
 
-#define MAX 10
+#define MAX 1000
 #define loop 1
 #define nome_arq "alunos.txt"
 

@@ -6,7 +6,6 @@ void verificar_se_existe_arquivo()
 
     if (arq)
     {
-        fread(&n, sizeof(&n), 1, arq);
 
         fclose(arq);
     }
@@ -31,13 +30,7 @@ void verificar_se_existe_arquivo()
             timer++;
         }
 
-        FILE *arq = fopen(nome_arq, "ab");
-
-        n = 0;
-
-        fwrite(&n, sizeof(&n), 1, arq);
-
-        fclose(arq);
+        formatar_arquivo();
     }
 }
 

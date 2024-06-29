@@ -14,7 +14,7 @@ typedef struct
 
 Alunos cadastro;
 
-int menu, n, timer;
+int menu, timer;
 
 void blindagem_scanf();
 

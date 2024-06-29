@@ -1,7 +1,7 @@
 #include "arquivoes.h"
 #include <stdlib.h>
 #include <string.h>
-
+ 
 void printar_TAD(Alunos TAD[], int *n)
 {
     printf("\n");

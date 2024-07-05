@@ -25,3 +25,5 @@ void ler_arquivo();
 void escrever_arquivo();
 
 void buscar_arquivo();
+
+void verificar_se_existe_arquivo();

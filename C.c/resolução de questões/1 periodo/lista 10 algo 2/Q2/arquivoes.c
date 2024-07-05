@@ -21,7 +21,6 @@ bool verificar_chave(int *chave_aux)
 
     if (arq)
     {
-
         while (!feof(arq))
         {
             fread(&cadastro, sizeof(cadastro), 1, arq);
@@ -98,6 +97,10 @@ void formatar_arquivo()
 
     cadastro.chave = -1;
 
+    memset(&cadastro.nome, '\0', strlen(cadastro.nome) + 1);
+    memset(&cadastro.endereco, '\0', strlen(cadastro.endereco) + 1);
+    memset(&cadastro.telefone, '\0', strlen(cadastro.telefone) + 1);
+
     FILE *arq = fopen(nome_arq, "ab");
 
     for (int i = 0; i < 1000; i++)
@@ -106,6 +109,40 @@ void formatar_arquivo()
     }
 
     fclose(arq);
+}
+
+void verificar_se_existe_arquivo()
+{
+    FILE *arq = fopen(nome_arq, "rb");
+
+    if (arq)
+    {
+
+        fclose(arq);
+    }
+    else
+    {
+        timer = 0;
+
+        while (timer != 6)
+        {
+
+            printf("\rArquivo nao existe, esta sendo criado um novo, aguarde      ");
+            fflush(stdout);
+            printf("\rArquivo nao existe, esta sendo criado um novo, aguarde");
+            fflush(stdout);
+
+            for (int i = 0; i < 3; i++)
+            {
+                printf(" .");
+                fflush(stdout);
+                Sleep(250);
+            }
+            timer++;
+        }
+
+        formatar_arquivo();
+    }
 }
 
 void ler_arquivo()
@@ -127,7 +164,7 @@ void ler_arquivo()
             }
         }
 
-        if (teste = false)
+        if (teste == false)
         {
             printf("arquivo vazio\n\n");
         }

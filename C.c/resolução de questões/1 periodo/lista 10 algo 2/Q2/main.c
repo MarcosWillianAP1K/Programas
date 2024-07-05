@@ -1,39 +1,5 @@
 #include "arquivoes.h"
 
-void verificar_se_existe_arquivo()
-{
-    FILE *arq = fopen(nome_arq, "rb");
-
-    if (arq)
-    {
-
-        fclose(arq);
-    }
-    else
-    {
-        timer = 0;
-
-        while (timer != 6)
-        {
-
-            printf("\rArquivo nao existe, esta sendo criado um novo, aguarde      ");
-            fflush(stdout);
-            printf("\rArquivo nao existe, esta sendo criado um novo, aguarde");
-            fflush(stdout);
-
-            for (int i = 0; i < 3; i++)
-            {
-                printf(" .");
-                fflush(stdout);
-                Sleep(250);
-            }
-            timer++;
-        }
-
-        formatar_arquivo();
-    }
-}
-
 int main()
 {
     system("cls||clear");

@@ -11,6 +11,7 @@ main() {
   String Function(Map) pegarApenasONome = (aluno) => aluno['nome'];
   int Function(String) qtdeDeLetras = (texto) => texto.length;
   int Function(int) dobro = (numero) => numero * 2;
+  
   var resultado = alunos.map(pegarApenasONome).map(qtdeDeLetras).map(dobro);
   print(resultado);
 }

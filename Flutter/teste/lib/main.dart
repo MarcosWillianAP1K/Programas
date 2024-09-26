@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import "./Uau.dart";
 
 main() {
   runApp(const perguntaApp());
@@ -73,16 +74,16 @@ class _Contador_estado extends State<Contador> {
                       ),
                       // ignore: prefer_const_constructors
                       IconButton(
-                        iconSize: 80.0,
+                        iconSize: 60.0,
                         onPressed: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const passar_pagina()),
+                                builder: (context) => const outra_tela()),
                           );
                         },
-                        icon: const Icon(Icons.circle),
-                        color: const Color.fromARGB(255, 0, 89, 255),
+                        icon: const Icon(Icons.arrow_forward),
+                        color: const Color.fromARGB(255, 0, 0, 0),
                       ),
                       IconButton(
                         iconSize: 100.0,
@@ -100,25 +101,34 @@ class _Contador_estado extends State<Contador> {
   }
 }
 
-class passar_pagina extends StatelessWidget {
-  const passar_pagina({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: outra_tela(),
-    );
-  }
-}
-
+// ignore: camel_case_types
 class outra_tela extends StatefulWidget {
   const outra_tela({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _OutraTelaState createState() => _OutraTelaState();
 }
 
 class _OutraTelaState extends State<outra_tela> {
+  final List _perguntas = [
+    "Qual é a sua cor favorita?",
+    "Qual é o seu animal favorito?",
+    "Qual é o seu time favorito?"
+  ];
+  int i = 0;
+
+  // ignore: non_constant_identifier_names
+  void _acresentar_i() {
+    setState(() {
+      if (i < _perguntas.length - 1) {
+        i++;
+      } else {
+        i = 0;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -129,16 +139,30 @@ class _OutraTelaState extends State<outra_tela> {
           title: const Text('Outra tela'),
         ),
         body: Center(
-          child: IconButton(
-            iconSize: 80.0,
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(Icons.circle),
-            color: const Color.fromARGB(255, 0, 89, 255),
+          child: Column(
+            children: [
+              Text(_perguntas[i], textScaler: const TextScaler.linear(2.0)),
+              ElevatedButton.icon(
+                onPressed: _acresentar_i,
+                label: const Text(
+                  "Resposta 1",
+                  textScaler: TextScaler.linear(1.0),
+                  selectionColor: Color.fromRGBO(0, 0, 0, 1),
+                ),
+              ),
+              const Center(child: Uau("BAH"))
+            ],
           ),
         ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Icon(Icons.arrow_back),
+        ),
+        // bottomNavigationBar: ,
       ),
     );
   }
+  
 }
